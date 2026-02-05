@@ -1,0 +1,23 @@
+# Install libraries
+!pip -q install transformers torch
+
+from transformers import pipeline
+
+# load pretrained sentiment model
+sentiment = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+
+# sample texts
+texts = [
+    "This product is amazing and works perfectly",
+    "I hate the experience, very bad service",
+    "It is okay, nothing special"
+]
+
+# run prediction
+results = sentiment(texts)
+
+# print results
+for text, res in zip(texts, results):
+    print(f"Text: {text}")
+    print(f"Sentiment: {res['label']} | Confidence: {res['score']:.3f}")
+    print("-"*50)
