@@ -1,0 +1,11 @@
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
+
+from nltk.tokenize import word_tokenize
+
+text = "large language models are transforming the natural language processing."
+tokens = word_tokenize(text)
+
+print("Word Tokens:", tokens)
+
